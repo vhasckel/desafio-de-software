@@ -25,14 +25,14 @@ export function BusinessForm({ initialData, onSubmit }: Props) {
   });
 
   const inputClass =
-    'w-full p-2 border border-border rounded mt-1 bg-background text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:border-transparent';
+    'mt-1 w-full rounded-lg border border-border bg-background px-3 py-2 text-foreground transition-colors placeholder:text-muted focus:border-accent focus:outline-none focus:ring-2 focus:ring-accent/20';
   const labelClass = 'block text-sm font-medium text-foreground';
-  const errorClass = 'text-sc-red text-xs mt-1';
+  const errorClass = 'mt-1 text-xs text-sc-red';
 
   return (
     <form
       onSubmit={handleSubmit(onSubmit)}
-      className='space-y-4 max-w-2xl bg-sc-green-pale/30 border border-sc-green/20 p-6 rounded-lg shadow-md'
+      className='space-y-5 rounded-lg border border-border bg-background p-6 shadow-sm'
     >
       <div>
         <label className={labelClass}>Nome do Empreendimento</label>
@@ -87,35 +87,37 @@ export function BusinessForm({ initialData, onSubmit }: Props) {
 
       <div>
         <label className={labelClass}>Status</label>
-        <div className='flex gap-4 mt-2'>
-          <label className='flex items-center gap-2 text-foreground cursor-pointer'>
+        <div className='mt-2 flex gap-6'>
+          <label className='flex cursor-pointer items-center gap-2 text-sm text-foreground'>
             <input
               type='radio'
-              value='active'
+              value={BusinessStatus.ACTIVE}
               {...register('status')}
-              className='accent-accent'
-            />{' '}
+              className='h-4 w-4 accent-accent'
+            />
             Ativo
           </label>
-          <label className='flex items-center gap-2 text-foreground cursor-pointer'>
+          <label className='flex cursor-pointer items-center gap-2 text-sm text-foreground'>
             <input
               type='radio'
-              value='inactive'
+              value={BusinessStatus.INACTIVE}
               {...register('status')}
-              className='accent-accent'
-            />{' '}
+              className='h-4 w-4 accent-accent'
+            />
             Inativo
           </label>
         </div>
       </div>
 
-      <button
-        type='submit'
-        disabled={isSubmitting}
-        className='w-full bg-accent text-white py-2 rounded font-bold hover:bg-accent-hover disabled:bg-muted disabled:cursor-not-allowed transition-colors'
-      >
-        {isSubmitting ? 'Salvando...' : 'Salvar Empreendimento'}
-      </button>
+      <div className='pt-2'>
+        <button
+          type='submit'
+          disabled={isSubmitting}
+          className='w-full rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60'
+        >
+          {isSubmitting ? 'Salvando...' : 'Salvar Empreendimento'}
+        </button>
+      </div>
     </form>
   );
 }
