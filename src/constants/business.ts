@@ -1,7 +1,3 @@
-export const SECTORS = [
-  'Tecnologia',
-  'Comércio',
-  'Indústria',
-  'Serviços',
-  'Agronegócio',
-] as const;
+import { BusinessSector } from '@/types/business';
+
+export const SECTORS = Object.values(BusinessSector);
