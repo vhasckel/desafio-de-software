@@ -1,6 +1,5 @@
-import { mockBusinesses } from '@/mocks/business';
-import { BusinessCard } from '@/components/layout/BusinessCard';
 import { Button } from '@/components/ui/Button';
+import { BusinessList } from '@/components/layout/BusinessList';
 
 export default function Home() {
   return (
@@ -28,18 +27,7 @@ export default function Home() {
           <h2 id='list-heading' className='sr-only'>
             Lista de empreendimentos
           </h2>
-          <p className='mb-6 text-sm text-muted'>
-            {mockBusinesses.length} empreendimento
-            {mockBusinesses.length !== 1 ? 's' : ''} cadastrado
-            {mockBusinesses.length !== 1 ? 's' : ''}
-          </p>
-          <ul className='grid grid-cols-1 gap-4 sm:grid-cols-2 xl:grid-cols-3'>
-            {mockBusinesses.map((business) => (
-              <li key={business.id}>
-                <BusinessCard business={business} />
-              </li>
-            ))}
-          </ul>
+          <BusinessList />
         </section>
       </main>
     </div>

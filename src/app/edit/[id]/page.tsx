@@ -1,20 +1,39 @@
 'use client';
 
+import { useEffect, useState } from 'react';
 import { BusinessForm } from '@/components/forms/BusinessForm';
 import { BusinessFormData } from '@/libs/schema';
-import { getBusinessesId } from '@/services/business';
+import { getBusinessById, updateBusiness } from '@/services/business';
 import Link from 'next/link';
 import { notFound, useParams, useRouter } from 'next/navigation';
+import type { Business } from '@/types/business';
 
 export default function EditBusinessPage() {
   const params = useParams();
   const router = useRouter();
   const id = params?.id as string | undefined;
+  const [business, setBusiness] = useState<Business | null | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    if (!id) return;
+    getBusinessById(id)
+      .then(setBusiness)
+      .catch(() => setBusiness(null));
+  }, [id]);
 
   if (!id) notFound();
 
-  const business = getBusinessesId(id);
-  if (!business) notFound();
+  if (business === undefined) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <p className="text-muted">Carregando...</p>
+      </div>
+    );
+  }
+
+  if (business === null || !business) notFound();
 
   const initialData: BusinessFormData = {
     name: business.name,
@@ -25,10 +44,11 @@ export default function EditBusinessPage() {
     status: business.status,
   };
 
-  const handleSave = (_data: BusinessFormData) => {
-    console.log('editar', id, _data);
+  const handleSave = async (data: BusinessFormData) => {
+    await updateBusiness(id, data);
     router.push('/');
   };
+
   return (
     <div className='min-h-screen bg-background text-foreground'>
       <header className='border-b border-border bg-sc-green-pale/30'>
