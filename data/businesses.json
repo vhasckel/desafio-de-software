@@ -232,5 +232,14 @@
     "sector": "Agronegócio",
     "contact": "antonio@coopleiteira.com.br",
     "status": "Ativo"
+  },
+  {
+    "id": "27",
+    "name": "Empresa Teste",
+    "manager": "teste",
+    "city": "florianopolis",
+    "sector": "Tecnologia",
+    "contact": "teste@email.com",
+    "status": "Ativo"
   }
 ]
