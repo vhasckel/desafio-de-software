@@ -1,0 +1,78 @@
+'use client';
+
+import { useEffect, useState } from 'react';
+import { BusinessForm } from '@/components/forms/BusinessForm';
+import { BusinessFormData } from '@/libs/schema';
+import { getBusinessById, updateBusiness } from '@/services/business';
+import Link from 'next/link';
+import { notFound, useParams, useRouter } from 'next/navigation';
+import type { Business } from '@/types/business';
+
+export default function EditBusinessPage() {
+  const params = useParams();
+  const router = useRouter();
+  const id = params?.id as string | undefined;
+  const [business, setBusiness] = useState<Business | null | undefined>(
+    undefined
+  );
+
+  useEffect(() => {
+    if (!id) return;
+    getBusinessById(id)
+      .then(setBusiness)
+      .catch(() => setBusiness(null));
+  }, [id]);
+
+  if (!id) notFound();
+
+  if (business === undefined) {
+    return (
+      <div className="min-h-screen bg-background text-foreground flex items-center justify-center">
+        <p className="text-muted">Carregando...</p>
+      </div>
+    );
+  }
+
+  if (business === null || !business) notFound();
+
+  const initialData: BusinessFormData = {
+    name: business.name,
+    manager: business.manager,
+    city: business.city,
+    sector: business.sector,
+    contact: business.contact,
+    status: business.status,
+  };
+
+  const handleSave = async (data: BusinessFormData) => {
+    await updateBusiness(id, data);
+    router.push('/');
+  };
+
+  return (
+    <div className='min-h-screen bg-background text-foreground'>
+      <header className='border-b border-border bg-sc-green-pale/30'>
+        <div className='mx-auto max-w-5xl px-6 py-6 sm:px-8'>
+          <Link
+            href='/'
+            className='mb-4 inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded'
+          >
+            <span aria-hidden>←</span>
+            Voltar à tela inicial
+          </Link>
+          <div className='border-l-4 border-accent pl-4'>
+            <h1 className='text-2xl font-semibold tracking-tight text-foreground sm:text-3xl'>
+              Editar Empreendimento
+            </h1>
+            <p className='mt-1 text-sm text-muted sm:text-base'>
+              Altere os dados do empreendimento em Santa Catarina
+            </p>
+          </div>
+        </div>
+      </header>
+      <main className='mx-auto max-w-5xl px-6 py-8 sm:px-8'>
+        <BusinessForm initialData={initialData} onSubmit={handleSave} />
+      </main>
+    </div>
+  );
+}

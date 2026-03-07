@@ -1,0 +1,236 @@
+[
+  {
+    "id": "1",
+    "name": "Empresa Teste",
+    "manager": "João da Silva",
+    "city": "Joinville",
+    "sector": "Tecnologia",
+    "contact": "joao.silva@empresa1.com",
+    "status": "Ativo"
+  },
+  {
+    "id": "2",
+    "name": "Tech Sul Ltda",
+    "manager": "Maria Silva",
+    "city": "Florianópolis",
+    "sector": "Tecnologia",
+    "contact": "contato@techsul.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "3",
+    "name": "Comércio do Vale",
+    "manager": "João Santos",
+    "city": "Joinville",
+    "sector": "Comércio",
+    "contact": "joao@comerciodovale.com",
+    "status": "Ativo"
+  },
+  {
+    "id": "4",
+    "name": "Indústria do Sul",
+    "manager": "Maria Oliveira",
+    "city": "Joinville",
+    "sector": "Indústria",
+    "contact": "maria@industriasul.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "5",
+    "name": "Serviços do Sul",
+    "manager": "Pedro Oliveira",
+    "city": "Joinville",
+    "sector": "Serviços",
+    "contact": "pedro@servicosdosul.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "6",
+    "name": "Agronegócio do Sul",
+    "manager": "Ana Oliveira",
+    "city": "Joinville",
+    "sector": "Agronegócio",
+    "contact": "ana@agricoesul.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "7",
+    "name": "Inova Software",
+    "manager": "Carlos Mendes",
+    "city": "Curitiba",
+    "sector": "Tecnologia",
+    "contact": "carlos@inovasoftware.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "8",
+    "name": "Supermercados Central",
+    "manager": "Fernanda Costa",
+    "city": "Blumenau",
+    "sector": "Comércio",
+    "contact": "fernanda@supercentral.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "9",
+    "name": "Metalúrgica Santa Catarina",
+    "manager": "Roberto Alves",
+    "city": "Jaraguá do Sul",
+    "sector": "Indústria",
+    "contact": "roberto@metalsc.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "10",
+    "name": "Consultoria Estratégica",
+    "manager": "Patrícia Lima",
+    "city": "Florianópolis",
+    "sector": "Serviços",
+    "contact": "patricia@consultoriaestrategica.com",
+    "status": "Ativo"
+  },
+  {
+    "id": "11",
+    "name": "Cooperativa Agrícola Vale",
+    "manager": "Eduardo Souza",
+    "city": "Chapecó",
+    "sector": "Agronegócio",
+    "contact": "eduardo@coopvale.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "12",
+    "name": "Data Solutions",
+    "manager": "Luciana Ferreira",
+    "city": "Joinville",
+    "sector": "Tecnologia",
+    "contact": "luciana@datasolutions.com.br",
+    "status": "Inativo"
+  },
+  {
+    "id": "13",
+    "name": "Loja do Bairro",
+    "manager": "Marcos Pereira",
+    "city": "Itajaí",
+    "sector": "Comércio",
+    "contact": "marcos@lojadobairro.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "14",
+    "name": "Têxtil Sul Brasil",
+    "manager": "Sandra Rocha",
+    "city": "Brusque",
+    "sector": "Indústria",
+    "contact": "sandra@textilsul.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "15",
+    "name": "Transportes Rápido",
+    "manager": "André Nascimento",
+    "city": "Joinville",
+    "sector": "Serviços",
+    "contact": "andre@transportesrapido.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "16",
+    "name": "Fazenda Boa Esperança",
+    "manager": "Ricardo Martins",
+    "city": "Concórdia",
+    "sector": "Agronegócio",
+    "contact": "ricardo@fazendaboaesperanca.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "17",
+    "name": "Cloud Tech Brasil",
+    "manager": "Juliana Campos",
+    "city": "Florianópolis",
+    "sector": "Tecnologia",
+    "contact": "juliana@cloudtech.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "18",
+    "name": "Atacado Norte",
+    "manager": "Felipe Rodrigues",
+    "city": "Joinville",
+    "sector": "Comércio",
+    "contact": "felipe@atacadonorte.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "19",
+    "name": "Plásticos do Litoral",
+    "manager": "Cristina Barbosa",
+    "city": "São José",
+    "sector": "Indústria",
+    "contact": "cristina@plasticoslitoral.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "20",
+    "name": "Escola de Idiomas Global",
+    "manager": "Paulo Henrique",
+    "city": "Blumenau",
+    "sector": "Serviços",
+    "contact": "paulo@escolaglobal.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "21",
+    "name": "Agropecuária Planalto",
+    "manager": "Mariana Santos",
+    "city": "Lages",
+    "sector": "Agronegócio",
+    "contact": "mariana@agroplanalto.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "22",
+    "name": "Dev House Studio",
+    "manager": "Gustavo Teixeira",
+    "city": "Joinville",
+    "sector": "Tecnologia",
+    "contact": "gustavo@devhouse.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "23",
+    "name": "Boutique Elegância",
+    "manager": "Renata Oliveira",
+    "city": "Balneário Camboriú",
+    "sector": "Comércio",
+    "contact": "renata@boutiqueelegancia.com.br",
+    "status": "Inativo"
+  },
+  {
+    "id": "24",
+    "name": "Móveis Artesanais SC",
+    "manager": "Diego Cardoso",
+    "city": "Rio do Sul",
+    "sector": "Indústria",
+    "contact": "diego@moveisartesanais.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "25",
+    "name": "Clínica Saúde Total",
+    "manager": "Dra. Vanessa Lima",
+    "city": "Florianópolis",
+    "sector": "Serviços",
+    "contact": "vanessa@clinicasaudetotal.com.br",
+    "status": "Ativo"
+  },
+  {
+    "id": "26",
+    "name": "Cooperativa Leiteira",
+    "manager": "Antônio Becker",
+    "city": "Campos Novos",
+    "sector": "Agronegócio",
+    "contact": "antonio@coopleiteira.com.br",
+    "status": "Ativo"
+  }
+]
