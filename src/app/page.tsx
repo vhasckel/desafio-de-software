@@ -1,6 +1,6 @@
 import { mockBusinesses } from '@/mocks/business';
 import { BusinessCard } from '@/components/layout/BusinessCard';
-import Link from 'next/link';
+import { Button } from '@/components/ui/Button';
 
 export default function Home() {
   return (
@@ -16,12 +16,9 @@ export default function Home() {
                 Cadastro de empreendimentos em Santa Catarina
               </p>
             </div>
-            <Link
-              href='/new'
-              className='inline-flex shrink-0 items-center justify-center rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
-            >
+            <Button href='/new'>
               Novo Empreendimento
-            </Link>
+            </Button>
           </div>
         </div>
       </header>

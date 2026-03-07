@@ -6,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { businessSchema, BusinessFormData } from '@/libs/schema';
 import { SECTORS } from '@/constants/business';
 import { BusinessStatus } from '@/types/business';
+import { Button } from '@/components/ui/Button';
 
 interface Props {
   initialData?: BusinessFormData;
@@ -110,13 +111,13 @@ export function BusinessForm({ initialData, onSubmit }: Props) {
       </div>
 
       <div className='pt-2'>
-        <button
+        <Button
           type='submit'
           disabled={isSubmitting}
-          className='w-full rounded-lg bg-accent px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-accent-hover focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60'
+          className='w-full'
         >
           {isSubmitting ? 'Salvando...' : 'Salvar Empreendimento'}
-        </button>
+        </Button>
       </div>
     </form>
   );
