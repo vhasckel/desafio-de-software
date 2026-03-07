@@ -9,7 +9,9 @@ export async function getBusinesses(): Promise<Business[]> {
   return res.json();
 }
 
-export async function getBusinessById(id: string): Promise<Business | undefined> {
+export async function getBusinessById(
+  id: string,
+): Promise<Business | undefined> {
   const res = await fetch(`${BASE}/${id}`);
   if (!res.ok) return undefined;
   return res.json();
@@ -17,12 +19,25 @@ export async function getBusinessById(id: string): Promise<Business | undefined>
 
 export async function updateBusiness(
   id: string,
-  data: BusinessFormData
-): Promise<void> {
+  data: BusinessFormData,
+): Promise<Business> {
   const res = await fetch(`${BASE}/${id}`, {
     method: 'PUT',
     headers: { 'Content-Type': 'application/json' },
     body: JSON.stringify(data),
   });
   if (!res.ok) throw new Error('Falha ao atualizar empreendimento');
+  return res.json();
+}
+
+export async function createBusiness(
+  data: BusinessFormData,
+): Promise<Business> {
+  const res = await fetch(BASE, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(data),
+  });
+  if (!res.ok) throw new Error('Falha ao criar empreendimento');
+  return res.json();
 }
