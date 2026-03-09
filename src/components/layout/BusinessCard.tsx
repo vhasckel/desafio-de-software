@@ -1,6 +1,7 @@
 'use client';
 
 import { useState } from 'react';
+import Link from 'next/link';
 import { Business, BusinessStatus } from '@/types/business';
 import { Button } from '@/components/ui/Button';
 import { ConfirmModal } from '@/components/ui/ConfirmModal';
@@ -17,10 +18,13 @@ export function BusinessCard({ business }: { business: Business }) {
   };
 
   return (
-    <article className='group relative rounded-lg border border-border bg-background p-5 shadow-sm transition-shadow hover:shadow-md'>
-      <div className='flex items-start justify-between gap-3'>
+    <article className='group relative rounded-lg border border-border bg-background p-5 shadow-sm transition-all duration-200 hover:border-accent/50 hover:bg-sc-green-pale/20 hover:shadow-lg'>
+      <Link
+        href={`/business/${business.id}`}
+        className='flex items-start justify-between gap-3 rounded focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
+      >
         <div className='min-w-0 flex-1'>
-          <h2 className='truncate text-lg font-semibold tracking-tight text-foreground'>
+          <h2 className='truncate text-lg font-semibold tracking-tight text-foreground group-hover:text-accent'>
             {business.name}
           </h2>
           <p className='mt-1 text-sm text-muted'>{business.city}</p>
@@ -35,7 +39,7 @@ export function BusinessCard({ business }: { business: Business }) {
         >
           {business.status}
         </span>
-      </div>
+      </Link>
       <div className='mt-3 flex items-center justify-between gap-2 border-t border-border pt-3'>
         <div className='flex min-w-0 items-center gap-2'>
           <span className='text-xs text-muted'>{business.sector}</span>
