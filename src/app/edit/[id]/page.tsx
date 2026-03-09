@@ -4,8 +4,8 @@ import { useEffect, useState } from 'react';
 import { BusinessForm } from '@/components/forms/BusinessForm';
 import { BusinessFormData } from '@/libs/schema';
 import { getBusinessById, updateBusiness } from '@/services/business';
-import Link from 'next/link';
 import { notFound, useParams, useRouter } from 'next/navigation';
+import { PageHeader } from '@/components/layout/PageHeader';
 import type { Business } from '@/types/business';
 
 export default function EditBusinessPage() {
@@ -51,25 +51,11 @@ export default function EditBusinessPage() {
 
   return (
     <div className='min-h-screen bg-background text-foreground'>
-      <header className='border-b border-border bg-sc-green-pale/30'>
-        <div className='mx-auto max-w-5xl px-6 py-6 sm:px-8'>
-          <Link
-            href='/'
-            className='mb-4 inline-flex items-center gap-1.5 text-sm text-muted transition-colors hover:text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2 rounded'
-          >
-            <span aria-hidden>←</span>
-            Voltar à tela inicial
-          </Link>
-          <div className='border-l-4 border-accent pl-4'>
-            <h1 className='text-2xl font-semibold tracking-tight text-foreground sm:text-3xl'>
-              Editar Empreendimento
-            </h1>
-            <p className='mt-1 text-sm text-muted sm:text-base'>
-              Altere os dados do empreendimento em Santa Catarina
-            </p>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        title='Editar Empreendimento'
+        description='Altere os dados do empreendimento em Santa Catarina'
+        showBackLink
+      />
       <main className='mx-auto max-w-5xl px-6 py-8 sm:px-8'>
         <BusinessForm initialData={initialData} onSubmit={handleSave} />
       </main>
