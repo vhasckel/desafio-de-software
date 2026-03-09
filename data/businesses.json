@@ -223,5 +223,14 @@
     "sector": "Agronegócio",
     "contact": "antonio@coopleiteira.com.br",
     "status": "Ativo"
+  },
+  {
+    "id": "27",
+    "name": "gfhnt",
+    "manager": "trjhrtyju",
+    "city": "rtjhutr6",
+    "sector": "Comércio",
+    "contact": "teste@email.com",
+    "status": "Ativo"
   }
 ]

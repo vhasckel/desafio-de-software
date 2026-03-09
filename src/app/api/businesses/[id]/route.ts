@@ -3,7 +3,7 @@ import {
   readBusinesses,
   writeBusinesses,
 } from '@/libs/business-storage';
-import type { BusinessFormData } from '@/libs/schema';
+import { businessSchema } from '@/libs/schema';
 
 export async function GET(
   _request: Request,
@@ -35,7 +35,18 @@ export async function PUT(
 ) {
   try {
     const { id } = await params;
-    const data: BusinessFormData = await request.json();
+    const body = await request.json();
+    const parsed = businessSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        {
+          error: 'Erro de validação',
+          details: parsed.error.flatten(),
+        },
+        { status: 400 },
+      );
+    }
+    const data = parsed.data;
     const list = await readBusinesses();
     const index = list.findIndex((b) => b.id === id);
     if (index === -1) {
