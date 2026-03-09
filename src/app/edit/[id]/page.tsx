@@ -15,6 +15,7 @@ export default function EditBusinessPage() {
   const [business, setBusiness] = useState<Business | null | undefined>(
     undefined
   );
+  const [error, setError] = useState<string | null>(null);
 
   useEffect(() => {
     if (!id) return;
@@ -45,8 +46,13 @@ export default function EditBusinessPage() {
   };
 
   const handleSave = async (data: BusinessFormData) => {
-    await updateBusiness(id, data);
-    router.push('/');
+    setError(null);
+    try {
+      await updateBusiness(id, data);
+      router.push('/');
+    } catch (e) {
+      setError(e instanceof Error ? e.message : 'Erro ao atualizar empreendimento.');
+    }
   };
 
   return (
@@ -57,6 +63,14 @@ export default function EditBusinessPage() {
         showBackLink
       />
       <main className='mx-auto max-w-5xl px-6 py-8 sm:px-8'>
+        {error && (
+          <div
+            role="alert"
+            className="mb-6 rounded-lg border border-sc-red/30 bg-sc-red/10 px-4 py-3 text-sm text-sc-red"
+          >
+            {error}
+          </div>
+        )}
         <BusinessForm initialData={initialData} onSubmit={handleSave} />
       </main>
     </div>
