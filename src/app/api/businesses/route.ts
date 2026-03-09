@@ -2,7 +2,7 @@ import { NextResponse } from 'next/server';
 import {
   readBusinesses,
   writeBusinesses,
-} from '../../../libs/business-storage';
+} from '@/libs/business-storage';
 import type { BusinessFormData } from '@/libs/schema';
 import type { Business } from '@/types/business';
 
