@@ -8,12 +8,18 @@ import { ConfirmModal } from '@/components/ui/ConfirmModal';
 import { deleteBusiness } from '@/services/business';
 import { useRouter } from 'next/navigation';
 
-export function BusinessCard({ business }: { business: Business }) {
+interface BusinessCardProps {
+  business: Business;
+  onDeleted?: () => void;
+}
+
+export function BusinessCard({ business, onDeleted }: BusinessCardProps) {
   const router = useRouter();
   const [showDeleteModal, setShowDeleteModal] = useState(false);
 
   const handleConfirmDelete = async () => {
     await deleteBusiness(business.id);
+    onDeleted?.();
     router.push('/');
   };
 
