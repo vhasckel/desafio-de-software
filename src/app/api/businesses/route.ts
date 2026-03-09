@@ -2,8 +2,8 @@ import { NextResponse } from 'next/server';
 import {
   readBusinesses,
   writeBusinesses,
-} from '../../../libs/business-storage';
-import type { BusinessFormData } from '@/libs/schema';
+} from '@/libs/business-storage';
+import { businessSchema, type BusinessFormData } from '@/libs/schema';
 import type { Business } from '@/types/business';
 
 export async function GET() {
@@ -21,7 +21,18 @@ export async function GET() {
 
 export async function POST(request: Request) {
   try {
-    const data: BusinessFormData = await request.json();
+    const body = await request.json();
+    const parsed = businessSchema.safeParse(body);
+    if (!parsed.success) {
+      return NextResponse.json(
+        {
+          error: 'Erro de validação',
+          details: parsed.error.flatten(),
+        },
+        { status: 400 },
+      );
+    }
+    const data = parsed.data;
     const list = await readBusinesses();
     const maxId = list.reduce(
       (max, b) => Math.max(max, parseInt(b.id, 10) || 0),

@@ -1,13 +1,13 @@
 'use client';
 
 import { useEffect, useState } from 'react';
-import Link from 'next/link';
 import { notFound, useParams, useRouter } from 'next/navigation';
 import { deleteBusiness, getBusinessById } from '@/services/business';
 import { Button } from '@/components/ui/Button';
 import type { Business } from '@/types/business';
 import { BusinessStatus } from '@/types/business';
 import { ConfirmModal } from '@/components/ui/ConfirmModal';
+import { PageHeader } from '@/components/layout/PageHeader';
 
 export default function BusinessDetailPage() {
   const router = useRouter();
@@ -44,25 +44,11 @@ export default function BusinessDetailPage() {
 
   return (
     <div className='min-h-screen bg-background text-foreground'>
-      <header className='border-b border-border bg-sc-green-pale/30'>
-        <div className='mx-auto max-w-5xl px-6 py-6 sm:px-8'>
-          <Link
-            href='/'
-            className='mb-4 inline-flex items-center gap-1.5 rounded text-sm text-muted transition-colors hover:text-foreground focus:outline-none focus:ring-2 focus:ring-accent focus:ring-offset-2'
-          >
-            <span aria-hidden>←</span>
-            Voltar à tela inicial
-          </Link>
-          <div className='border-l-4 border-accent pl-4'>
-            <h1 className='text-2xl font-semibold tracking-tight text-foreground sm:text-3xl'>
-              {business.name}
-            </h1>
-            <p className='mt-1 text-sm text-muted sm:text-base'>
-              Detalhes do empreendimento em Santa Catarina
-            </p>
-          </div>
-        </div>
-      </header>
+      <PageHeader
+        title={business.name}
+        description='Detalhes do empreendimento em Santa Catarina'
+        showBackLink
+      />
 
       <main className='mx-auto max-w-5xl px-6 py-8 sm:px-8'>
         <section
