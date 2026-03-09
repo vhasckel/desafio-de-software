@@ -41,3 +41,9 @@ export async function createBusiness(
   if (!res.ok) throw new Error('Falha ao criar empreendimento');
   return res.json();
 }
+
+export async function deleteBusiness(id: string): Promise<Business> {
+  const res = await fetch(`${BASE}/${id}`, { method: 'DELETE' });
+  if (!res.ok) throw new Error('Falha ao excluir empreendimento');
+  return res.json();
+}
