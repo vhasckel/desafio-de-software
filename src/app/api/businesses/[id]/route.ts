@@ -1,10 +1,13 @@
 import { NextResponse } from 'next/server';
-import { readBusinesses, writeBusinesses } from '../../../../libs/business-storage';
+import {
+  readBusinesses,
+  writeBusinesses,
+} from '../../../../libs/business-storage';
 import type { BusinessFormData } from '@/libs/schema';
 
 export async function GET(
   _request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id } = await params;
@@ -13,7 +16,7 @@ export async function GET(
     if (!business) {
       return NextResponse.json(
         { error: 'Empreendimento não encontrado' },
-        { status: 404 }
+        { status: 404 },
       );
     }
     return NextResponse.json(business);
@@ -21,14 +24,14 @@ export async function GET(
     console.error(e);
     return NextResponse.json(
       { error: 'Falha ao carregar empreendimento' },
-      { status: 500 }
+      { status: 500 },
     );
   }
 }
 
 export async function PUT(
   request: Request,
-  { params }: { params: Promise<{ id: string }> }
+  { params }: { params: Promise<{ id: string }> },
 ) {
   try {
     const { id } = await params;
@@ -38,7 +41,7 @@ export async function PUT(
     if (index === -1) {
       return NextResponse.json(
         { error: 'Empreendimento não encontrado' },
-        { status: 404 }
+        { status: 404 },
       );
     }
     list[index] = { ...list[index], ...data };
@@ -48,7 +51,33 @@ export async function PUT(
     console.error(e);
     return NextResponse.json(
       { error: 'Falha ao atualizar empreendimento' },
-      { status: 500 }
+      { status: 500 },
+    );
+  }
+}
+
+export async function DELETE(
+  _request: Request,
+  { params }: { params: Promise<{ id: string }> },
+) {
+  try {
+    const { id } = await params;
+    const list = await readBusinesses();
+    const index = list.findIndex((b) => b.id === id);
+    if (index === -1) {
+      return NextResponse.json(
+        { error: 'Empreendimento não encontrado' },
+        { status: 404 },
+      );
+    }
+    const [removed] = list.splice(index, 1);
+    await writeBusinesses(list);
+    return NextResponse.json(removed);
+  } catch (e) {
+    console.error(e);
+    return NextResponse.json(
+      { error: 'Falha ao excluir empreendimento' },
+      { status: 500 },
     );
   }
 }

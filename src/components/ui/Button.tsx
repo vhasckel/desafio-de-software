@@ -7,14 +7,13 @@ const baseStyles =
   'inline-flex shrink-0 items-center justify-center rounded-lg text-sm font-medium transition-colors focus:outline-none focus:ring-2 focus:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-60';
 
 const variants = {
-  primary:
-    'bg-accent text-white hover:bg-accent-hover focus:ring-accent',
+  primary: 'bg-accent text-white hover:bg-accent-hover focus:ring-accent',
   secondary:
     'border border-border bg-background text-foreground hover:bg-muted/20 focus:ring-accent',
-  ghost:
-    'text-foreground hover:bg-muted/20 focus:ring-accent',
-  link:
-    'text-accent hover:text-accent-hover hover:underline focus:ring-accent',
+  ghost: 'text-foreground hover:bg-muted/20 focus:ring-accent',
+  link: 'text-accent hover:text-accent-hover hover:underline focus:ring-accent',
+  danger:
+    'bg-sc-red text-white hover:bg-sc-red/90 focus:ring-sc-red',
 } as const;
 
 const sizes = {
@@ -26,8 +25,10 @@ const sizes = {
 export type ButtonVariant = keyof typeof variants;
 export type ButtonSize = keyof typeof sizes;
 
-export interface ButtonProps
-  extends Omit<React.ButtonHTMLAttributes<HTMLButtonElement>, 'className'> {
+export interface ButtonProps extends Omit<
+  React.ButtonHTMLAttributes<HTMLButtonElement>,
+  'className'
+> {
   variant?: ButtonVariant;
   size?: ButtonSize;
   className?: string;
@@ -46,9 +47,10 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
       disabled,
       ...rest
     },
-    ref
+    ref,
   ) => {
-    const styles = `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`.trim();
+    const styles =
+      `${baseStyles} ${variants[variant]} ${sizes[size]} ${className}`.trim();
 
     if (href !== undefined) {
       const linkClass = disabled ? `${styles} pointer-events-none` : styles;
@@ -77,7 +79,7 @@ const Button = forwardRef<HTMLButtonElement | HTMLAnchorElement, ButtonProps>(
         {children}
       </button>
     );
-  }
+  },
 );
 
 Button.displayName = 'Button';
