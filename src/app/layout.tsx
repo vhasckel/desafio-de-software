@@ -15,6 +15,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: 'Empreendimentos SC',
   description: 'Cadastro de empreendimentos em Santa Catarina',
+  icons: { icon: '/icon.svg' },
 };
 
 export default function RootLayout({
