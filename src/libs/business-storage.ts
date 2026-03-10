@@ -27,6 +27,12 @@ export async function readBusinesses(): Promise<Business[]> {
 }
 
 export async function writeBusinesses(list: Business[]): Promise<void> {
-  await mkdir(DATA_DIR, { recursive: true });
-  await writeFile(FILE_PATH, JSON.stringify(list, null, 2));
+  try {
+    await mkdir(DATA_DIR, { recursive: true });
+    await writeFile(FILE_PATH, JSON.stringify(list, null, 2));
+  } catch (err) {
+    const message = err instanceof Error ? err.message : String(err);
+    console.error('[writeBusinesses]', message, { isVercel, DATA_DIR, FILE_PATH });
+    throw err;
+  }
 }
