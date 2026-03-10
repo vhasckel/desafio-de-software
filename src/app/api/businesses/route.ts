@@ -3,6 +3,8 @@ import {
   readBusinesses,
   writeBusinesses,
 } from '@/libs/business-storage';
+
+export const runtime = 'nodejs';
 import { businessSchema, type BusinessFormData } from '@/libs/schema';
 import type { Business } from '@/types/business';
 
