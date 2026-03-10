@@ -3,11 +3,7 @@
 /* Paleta inspirada em Santa Catarina (verde, branco) */
 :root {
   --sc-red: #a91b2d;
-  --sc-red-light: #c62828;
-  --sc-red-dark: #8b1525;
-  --sc-white: #fafafa;
   --sc-green: #2e7d5a;
-  --sc-green-light: #4a9d73;
   --sc-green-dark: #246b4a;
   --sc-green-pale: #e8f3ee;
   --background: #fafafa;
@@ -25,7 +21,6 @@
   --color-accent-hover: var(--sc-green-dark);
   --color-sc-red: var(--sc-red);
   --color-sc-green: var(--sc-green);
-  --color-sc-green-light: var(--sc-green-light);
   --color-sc-green-pale: var(--sc-green-pale);
   --color-muted: var(--muted);
   --color-border: var(--border);
