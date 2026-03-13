@@ -2,7 +2,7 @@
 
 Aplicação web para **cadastro e gestão de empreendimentos em Santa Catarina**. Permite listar, criar, visualizar, editar e excluir registros de empresas com validação de formulários e interface responsiva.
 
-**Acesso em produção:** [https://desafio-de-software.vercel.app/](https://desafio-de-software.vercel.app/)
+**Acesso em produção:** [https://empreendimentos-sc.vercel.app/](https://empreendimentos-sc.vercel.app/)
 
 **Vídeo pitch da aplicação:** [https://youtu.be/NfWfuZPbUJc](https://youtu.be/NfWfuZPbUJc)
 
